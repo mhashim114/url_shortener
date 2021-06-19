@@ -1,5 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block main %}
+
 <h1>Page not found</h1>
 
 <p>We coundn't found what you are looking for. Come vist our home page :)</p>
 
 <p><a href=" {{url_for('home')}} ">Home</a></p>
+
+{% endblock %}
