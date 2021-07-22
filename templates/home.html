@@ -3,47 +3,58 @@
 {% block title %}URL shortener{% endblock %}
 
 {% block main %}
+<link rel="stylesheet" href="style.css">
+<div id="main">
 
+    <div class="main2">
+  <h1 style="padding-top: 50px;">URL SHORTENER</h1>
 
-<h1>URL SHORTENER</h1>
-
-
-
-<form action="your-url", method="POST">
-    <label for="url">Website URL</label>
-    <input type="url" name='url' value="" required>
+  <div class="form1">
+   <form action="your-url", method="POST">
+    <label for="url" id = 'box-heading'>Website URL</label>
     <br>
-    <label for="code">Short Name</label>
-    <input type="text" name="code" value="" required>
+    <input type="url" name='url' value="" required placeholder="Website URL" style="margin-bottom: 25px;" class="input">
     <br>
-    <input type="submit" value="shorten">
+    <label for="code" id = 'box-heading'>Short Name</label>
+    <br>
+    <input type="text" name="code" value="" required placeholder="Short Name" class="input">
+    <br>
+    <input type="submit" value="shorten" class="btn">
 
-</form>
+   </form>
+  </div>
 
-
-<form action="your-url", method="POST", enctype="multipart/form-data">
+ <div class="form2">
+   <form action="your-url", method="POST", enctype="multipart/form-data">
     <label for="url">File</label>
-    <input type="file" name='file' value="" required>
+    <input type="file" name='file' value="" required style="margin-bottom: 55px; width: 70%;">
     <br>
-    <label for="code">Short Name</label>
-    <input type="text" name="code" value="" required>
+    <label for="code" id = 'box-heading'>Short Name</label>
     <br>
-    <input type="submit" value="shorten">
+    <input type="text" name="code" value="" required placeholder="Short Name" class="input">
+    <br>
+    <input type="submit" value="shorten" class="btn">
 
-</form>
+   </form>
+ </div>
 
-{% if codes %}
-<h3>Codes that you have created</h3>
-<ul>
+ <div class="code">
+  {% if codes %}
+  <h3>Codes that you have created</h3>
+  <ul>
     {% for code in codes %}
         <a href="{{ url_for('redirect_url', code=code ) }}">
             <li>{{ code }}</li>
         </a>
     {% endfor %}
     
-</ul>
+  </ul>
 
-{% endif %}
+  {% endif %}
 
 
-{% endblock %}
+  {% endblock %}
+ </div>
+</div>
+
+</div>
